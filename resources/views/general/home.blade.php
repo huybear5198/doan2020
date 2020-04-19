@@ -14,7 +14,7 @@
             
             <div class="listing-item">
               <div class="listing-image">
-                <img src="images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/img_1.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
@@ -29,7 +29,7 @@
             
             <div class="listing-item">
               <div class="listing-image">
-                <img src="images/img_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/img_2.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
@@ -44,7 +44,7 @@
             
             <div class="listing-item">
               <div class="listing-image">
-                <img src="images/img_3.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/img_3.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
@@ -60,7 +60,7 @@
             
             <div class="listing-item">
               <div class="listing-image">
-                <img src="images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/img_4.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
@@ -75,7 +75,7 @@
             
             <div class="listing-item">
               <div class="listing-image">
-                <img src="images/img_5.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/img_5.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
@@ -90,7 +90,7 @@
             
             <div class="listing-item">
               <div class="listing-image">
-                <img src="images/img_6.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/img_6.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid">
               </div>
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark"><span class="icon-heart"></span></a>
@@ -178,7 +178,7 @@
           <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
             <div class="how-it-work-step">
               <div class="img-wrap">
-                <img src="images/step-1.svg" alt="Free website template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/step-1.svg" alt="Free website template by Free-Template.co" class="img-fluid">
               </div>
               <span class="number">1</span>
               <h3>Decide What To Do</h3>
@@ -188,7 +188,7 @@
           <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
             <div class="how-it-work-step">
               <div class="img-wrap">
-                <img src="images/step-2.svg" alt="Free website template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/step-2.svg" alt="Free website template by Free-Template.co" class="img-fluid">
               </div>
               <span class="number">2</span>
               <h3>Find What You Want</h3>
@@ -198,7 +198,7 @@
           <div class="col-md-6 mb-4 mb-lg-0 col-lg-4">
             <div class="how-it-work-step">
               <div class="img-wrap">
-                <img src="images/step-3.svg" alt="Free website template by Free-Template.co" class="img-fluid">
+                <img src="browse/images/step-3.svg" alt="Free website template by Free-Template.co" class="img-fluid">
               </div>
               <span class="number">3</span>
               <h3>Explore Amazing Places</h3>
