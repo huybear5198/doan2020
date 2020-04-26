@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class type_products extends Model
+class TypeProduct extends Model
 {
     protected $fillable = ['name','description'];
 }
