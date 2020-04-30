@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->float('price');
             $table->text('image');
             $table->integer('quantity');
-            $table->bigIncrements('id_user');
+            $table->bigInteger('id_user');
             $table->timestamps();
         });
     }
