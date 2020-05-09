@@ -65,7 +65,7 @@
   <script src="../public/browse/js/typed.js"></script>
             <script>
             var typed = new Typed('.typed-words', {
-            strings: ["Attractions"," Events"," Hotels", " Restaurants"],
+            strings: ["Đồ điện tử"," Đồ ăn"," Thực phẩm", " Xe cộ", "..."],
             typeSpeed: 80,
             backSpeed: 80,
             backDelay: 4000,

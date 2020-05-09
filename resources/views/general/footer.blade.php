@@ -4,7 +4,7 @@
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <h2 class="footer-heading mb-4">Hỗ trợ khách hàng</h2>
                 <ul class="list-unstyled">
                   <li><a href="#">About Us</a></li>
                   <li><a href="#">Services</a></li>
@@ -13,7 +13,7 @@
                 </ul>
               </div>
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Products</h2>
+                <h2 class="footer-heading mb-4">Về Chợ Mới</h2>
                 <ul class="list-unstyled">
                   <li><a href="#">About Us</a></li>
                   <li><a href="#">Services</a></li>
@@ -22,7 +22,7 @@
                 </ul>
               </div>
               <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Features</h2>
+                <h2 class="footer-heading mb-4">Hợp tác và liên kết</h2>
                 <ul class="list-unstyled">
                   <li><a href="#">About Us</a></li>
                   <li><a href="#">Services</a></li>
