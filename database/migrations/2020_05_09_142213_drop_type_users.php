@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddLocationToProductsTable extends Migration
+class DropTypeUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddLocationToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('location');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('type');
+            $table->string('phone',100)->nullable()->change();
+            $table->text('address')->nullable()->change();
         });
     }
 
@@ -25,8 +27,8 @@ class AddLocationToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('location');
+        Schema::create('users', function (Blueprint $table) {
+            $table->bigInteger('type');
         });
     }
 }

@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\TypeProduct;
+use View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //its just a dummy data object.
+        $category_all = TypeProduct::all();
+
+        // Sharing is caring
+        View::share('category_all', $category_all);
     }
 }
