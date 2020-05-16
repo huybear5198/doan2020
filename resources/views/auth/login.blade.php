@@ -37,7 +37,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Sign In</h2>
-                        <form method="POST" class="register-form" id="login-form" action="{{route('postlog')}}">
+                        <form method="POST" class="register-form" id="login-form" action="{{route('login')}}">
                             {{ csrf_field() }}
                             @if ($errors->has('email'))
                                 <span class="help-block">

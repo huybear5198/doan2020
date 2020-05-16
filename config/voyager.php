@@ -14,7 +14,7 @@ return [
         'add_default_role_on_register' => true,
         'default_role'                 => 'user',
         'default_avatar'               => 'users/default.png',
-        'redirect'                     => '/admin',
+        'redirect'                     => '/user',
     ],
 
     /*
@@ -27,7 +27,8 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'TCG\\Voyager\\Http\\Controllers',
+        // 'namespace' => 'TCG\\Voyager\\Http\\Controllers',
+        'namespace' => 'App\\Http\\Controllers\\Voyager',
     ],
 
     /*

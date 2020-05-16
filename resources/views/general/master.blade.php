@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="../public/browse/css/rangeslider.css">
 
     <link rel="stylesheet" href="../public/browse/css/style.css">
-    
   </head>
   <body>
   

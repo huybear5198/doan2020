@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Rules\Captcha;
 use App\user;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-	//LOGIN
 	public function getLogin(){
 		return view('auth.login');
 	}
-
     public function postLogin(Request $req){
 	    $rule = array(
 	        'email'=>'required|email',
@@ -53,8 +52,8 @@ class UserController extends Controller
 	    {     
 	        return redirect('login')->with('noti','Đăng nhập thất bại');
 	    }
-    }
-	//REGISTER
+	}
+	
 	public function getRegister(){
 		return view('auth.register');
 	}
@@ -92,5 +91,5 @@ class UserController extends Controller
         //$user->role_id = $req->role_id;
     	$user->save();
         return redirect::to('login')->with('success','Đăng ký thành công');
-    }
+	}
 }
