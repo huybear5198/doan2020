@@ -7,22 +7,22 @@
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="../public/browse/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="{{ asset('browse/fonts/icomoon/style.css') }}">
 
-    <link rel="stylesheet" href="../public/browse/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/browse/css/magnific-popup.css">
-    <link rel="stylesheet" href="../public/browse/css/jquery-ui.css">
-    <link rel="stylesheet" href="../public/browse/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../public/browse/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ asset('browse/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('browse/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('browse/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('browse/css/owl.carousel.min.cs') }}s">
+    <link rel="stylesheet" href="{{ asset('browse/css/owl.theme.default.min.css') }}">
 
-    <link rel="stylesheet" href="../public/browse/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="{{ asset('browse/css/bootstrap-datepicker.css') }}">
 
-    <link rel="stylesheet" href="../public/browse/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="{{ asset('browse/fonts/flaticon/font/flaticon.css') }}">
 
-    <link rel="stylesheet" href="../public/browse/css/aos.css">
-    <link rel="stylesheet" href="../public/browse/css/rangeslider.css">
+    <link rel="stylesheet" href="{{ asset('browse/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('browse/css/rangeslider.css') }}">
 
-    <link rel="stylesheet" href="../public/browse/css/style.css">
+    <link rel="stylesheet" href="{{ asset('browse/css/style.css') }}">
   </head>
   <body>
   
@@ -47,34 +47,34 @@
   @include('general.footer')
   </div>
 
-  <script src="../public/browse/js/jquery-3.3.1.min.js"></script>
-  <script src="../public/browse/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../public/browse/js/jquery-ui.js"></script>
-  <script src="../public/browse/js/popper.min.js"></script>
-  <script src="../public/browse/js/bootstrap.min.js"></script>
-  <script src="../public/browse/js/owl.carousel.min.js"></script>
-  <script src="../public/browse/js/jquery.stellar.min.js"></script>
-  <script src="../public/browse/js/jquery.countdown.min.js"></script>
-  <script src="../public/browse/js/jquery.magnific-popup.min.js"></script>
-  <script src="../public/browse/js/bootstrap-datepicker.min.js"></script>
-  <script src="../public/browse/js/aos.js"></script>
-  <script src="../public/browse/js/rangeslider.min.js"></script>
+  <script src="{{ asset('browse/js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ asset('browse/js/jquery-migrate-3.0.1.min.js') }}"></script>
+  <script src="{{ asset('browse/js/jquery-ui.js') }}"></script>
+  <script src="{{ asset('browse/js/popper.min.js') }}"></script>
+  <script src="{{ asset('browse/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('browse/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('browse/js/jquery.stellar.min.js') }}"></script>
+  <script src="{{ asset('browse/js/jquery.countdown.min.js') }}"></script>
+  <script src="{{ asset('browse/js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ asset('browse/js/bootstrap-datepicker.min.js') }}"></script>
+  <script src="{{ asset('browse/js/aos.js') }}"></script>
+  <script src="{{ asset('browse/js/rangeslider.min.js') }}"></script>
   
 
-  <script src="../public/browse/js/typed.js"></script>
-            <script>
-            var typed = new Typed('.typed-words', {
-            strings: ["Đồ điện tử"," Đồ ăn"," Thực phẩm", " Xe cộ", "..."],
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 4000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
+  <script src="{{ asset('browse/js/typed.js') }}"></script>
+  <script>
+    var typed = new Typed('.typed-words', {
+                          strings: ["Đồ điện tử"," Đồ ăn"," Thực phẩm", " Xe cộ", "..."],
+                          typeSpeed: 80,
+                          backSpeed: 80,
+                          backDelay: 4000,
+                          startDelay: 1000,
+                          loop: true,
+                          showCursor: true
+    });
+  </script>
 
-  <script src="../public/browse/js/main.js"></script>
+  <script src="{{ asset('browse/js/main.js') }}"></script>
   
   </body>
 </html>
