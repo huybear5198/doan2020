@@ -1,4 +1,4 @@
-<div class="message-wraper">
+<div class="message-wrapper">
     <ul class="messages">
         @foreach($messages as $message)
         <li class="message clearfix">

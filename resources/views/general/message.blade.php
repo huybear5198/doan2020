@@ -130,17 +130,25 @@
 </head>
 <body>
 <div class="site-wrap">
-    <div class="site-mobile-menu">
+    <div class="container-fluid">
       <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+        <div class="row">
+            <div class="col-md-1" style="padding-right: 0px;">
+                <input type="button" value="Tất cả" style="width:100%;">
+            </div>
+            <div class="col-md-1" style="padding: 0;">
+                <input type="button" value="Mua" style="width:100%;">
+            </div>
+            <div class="col-md-1" style="padding: 0 15px 0 0;">
+                <input type="button" value="Bán" style="width:100%;">
+            </div>
         </div>
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="user-wrapper">
                     <ul class="users">
                         @foreach($users as $user)
@@ -163,7 +171,7 @@
                 </div>
             </div>
 
-            <div class="col-md-8" id="messages" style="height: 500px;">
+            <div class="col-md-9" id="messages" style="height: 500px;">
             </div>
         </div>
     </div>
@@ -231,7 +239,7 @@
                 }
             });
         });
-        $(document).on('keyup', '.input-text input', function (e) {
+        $(document).on('keyup', '.input-text input.submit', function (e) {
             var message = $(this).val();
 
             // check if enter key is pressed and message is not null also receiver is selected
@@ -245,12 +253,9 @@
                     data: datastr,
                     cache: false,
                     success: function (data) {
-
+                        scrollToBottomFunc();
                     },
                     error: function (jqXHR, status, err) {
-                    },
-                    complete: function () {
-                        scrollToBottomFunc();
                     }
                 })
             }
