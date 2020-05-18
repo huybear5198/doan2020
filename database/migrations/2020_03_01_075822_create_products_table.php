@@ -19,9 +19,10 @@ class CreateProductsTable extends Migration
             $table->bigInteger('type_product');
             $table->text('description');
             $table->float('price');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->integer('quantity');
             $table->bigInteger('id_user');
+            $table->bigInteger('location_id');
             $table->timestamps();
         });
     }

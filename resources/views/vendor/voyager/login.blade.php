@@ -7,10 +7,10 @@
     <title>Đăng nhập</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="../signin/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{ asset('signin/fonts/material-icon/css/material-design-iconic-font.min.css') }}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="../signin/css/style.css">
+    <link rel="stylesheet" href="{{ asset('signin/css/style.css') }}">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <!-- Bootstrap -->
@@ -29,7 +29,7 @@
                     <div class="signin-image">
                         <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
                         <figure><img src="../signin/images/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="{{route('register')}}" class="signup-image-link">Tạo tài khoản</a>
+                        <a href="{{ route('register') }}" class="signup-image-link">Tạo tài khoản</a>
                     </div>
 
                     <div class="signin-form">
@@ -88,10 +88,10 @@
     </div>
 
 <!-- JS -->
-<script src="../signin/vendor/jquery/jquery.min.js"></script>
-<script src="../signin/js/main.js"></script>
+<script src="{{ asset('signin/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('signin/js/main.js') }}"></script>
 <script>
-    var btn = document.querySelector('button[type="submit"]');
+    var btn = document.querySelector('input[type="submit"]');
     var form = document.forms[0];
     var email = document.querySelector('[name="email"]');
     var password = document.querySelector('[name="password"]');

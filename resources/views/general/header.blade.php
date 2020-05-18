@@ -33,7 +33,7 @@
                   <li><a href="{{route('voyager.dashboard')}}"><span>{{Auth::user()->name}}</span></a></li>
                   <li><a href="{{ route('logout') }}"><span>Đăng xuất</span></a></li>
                 @else
-                  <li><a href="{{route('login')}}"><span>Đăng nhập</span></a></li>
+                  <li><a href="{{ route('voyager.login') }}"><span>Đăng nhập</span></a></li>
                   <li><a href="{{route('register')}}"><span>Đăng ký</span></a></li>
                 @endif
                 <li><a href="{{route('contact')}}"><span>Liên hệ</span></a></li>
