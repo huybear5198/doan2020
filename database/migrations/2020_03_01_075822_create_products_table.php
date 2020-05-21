@@ -22,7 +22,10 @@ class CreateProductsTable extends Migration
             $table->text('image')->nullable();
             $table->integer('quantity');
             $table->bigInteger('id_user');
-            $table->bigInteger('location_id');
+            $table->string('city');
+            $table->string('district');
+            $table->string('sub_district');
+            $table->string('street');
             $table->timestamps();
         });
     }

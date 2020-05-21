@@ -15,13 +15,7 @@
                   <div class="col-lg-12 col-xl-4 no-sm-border border-right">
                     <input name="q" type="text" class="form-control" placeholder="Bạn muốn tìm kiếm gì?">
                   </div>
-                  <div class="col-lg-12 col-xl-3 no-sm-border border-right">
-                    <div class="wrap-icon">
-                      <span class="icon icon-room"></span>
-                      <input name="location" type="text" class="form-control" placeholder="Vị trí">
-                    </div>
-                  </div>
-                  <div class="col-lg-12 col-xl-3">
+                  <div class="col-lg-12 col-xl-4">
                     <div class="select-wrap">
                       <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
                       <select name="category" class="form-control" name="" id="">
@@ -32,6 +26,35 @@
                       </select>
                     </div>
                   </div>
+                  <div class="col-lg-12 col-xl-3 no-sm-border border-right">
+                    <div class="wrap-icon">
+                      <span class="icon icon-room"></span>
+                      <select name="city" class="form-control">
+                        <option value="">Chọn thành phố</option>
+                        @foreach($city_all as $ct)
+                          <option value="{{$ct->city}}">{{$ct->city}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-xl-3 no-sm-border border-right">
+                    <div class="wrap-icon">
+                      <span class="icon icon-room"></span>
+                      <input name="district" type="text" class="form-control" placeholder="Quận">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-xl-3 no-sm-border border-right">
+                    <div class="wrap-icon">
+                      <span class="icon icon-room"></span>
+                      <input name="sub_district" type="text" class="form-control" placeholder="Phường">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-xl-3 no-sm-border border-right">
+                    <div class="wrap-icon">
+                      <span class="icon icon-room"></span>
+                      <input name="street" type="text" class="form-control" placeholder="Đường">
+                    </div>
+                  </div>
                   <div class="col-lg-12 col-xl-2 ml-auto text-right">
                     <input type="submit" class="btn text-white btn-primary" value="Search">
                   </div>
@@ -40,10 +63,12 @@
             </div>
             @if ( isset($searching) )
             <div class="row justify-content-center mb-4">
-              <div class="col-md-10 text-left">
+              <div class="col-md-12 text-left">
                 <h1 data-aos="fade-up">
+                @if($searching->q)
                   Từ khóa: <span class="typed-words">{{ $searching->q }}</span><br>
-                  Vị trí: <span class="typed-words">{{ $searching->location }}</span><br>
+                @endif
+                @if($searching->category)
                   Loại sản phẩm
                   <span class="typed-words">
                     @foreach ($category_all as $ct_all)
@@ -52,7 +77,20 @@
                         @break
                       @endif
                     @endforeach
-                  </span>
+                  </span><br>
+                @endif  
+                @if($searching->city)
+                  Thành phố: <span class="typed-words">{{ $searching->city }}</span>
+                @endif
+                @if($searching->district)
+                  Quận: <span class="typed-words">{{ $searching->district }}</span><br>
+                @endif
+                  @if($searching->sub_district)
+                  Phường: <span class="typed-words">{{ $searching->sub_district }}</span>
+                @endif
+                  @if($searching->street)
+                  Đường: <span class="typed-words">{{ $searching->street }}</span>
+                @endif
                 </h1>
               </div>
             </div>

@@ -20,11 +20,30 @@ route::get('search',[
 	'as'=>'search',
 	'uses'=>'HomeController@getSearch'
 ]);
-
+Route::patch('user/update',[
+	'as' => 'update_user',
+	'uses' => 'HomeController@updateUser'
+]);
+Route::post('user/sanpham/create',[
+	'as' => 'create_product',
+	'uses' => 'HomeController@createProduct'
+]);
+Route::get('user/sanpham/edit/{id}',[
+	'as' => 'edit_product',
+	'uses' => 'HomeController@editProduct'
+]);
+Route::post('user/sanpham/update/{id}',[
+	'as' => 'update_product',
+	'uses' => 'HomeController@updateProduct'
+]);
+Route::get('user/sanpham/delete/{id}',[
+	'as' => 'delete_product',
+	'uses' => 'HomeController@deleteProduct'
+]);
 Route::get('/message', 'MessageController@index')->name('message_page');
 Route::get('/message/{id}', 'MessageController@getMessage')->name('message_content');
 Route::post('message', 'MessageController@sendMessage');
-
+Route::get('/message_user/{id}', 'MessageController@createMessage')->name('message_user');
 Auth::routes();
 
 Route::get('/logout', function(){
@@ -34,6 +53,8 @@ Route::get('/logout', function(){
  
 Route::group(['prefix' => 'user'], function () {
 	Voyager::routes();
+
+	Route::get('sanpham', 'HomeController@getProducts')->name('sanpham');
 
 	Route::get('register',[
 		'as'=>'register',

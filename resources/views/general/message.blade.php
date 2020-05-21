@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="{{ asset('browse/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('browse/css/jquery-ui.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('browse/fonts/icomoon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('browse/css/bootstrap-datepicker.css') }}">
 
     <style>
@@ -96,10 +96,10 @@
             border-radius: 10px;
         }
         .received {
-            background: #ffffff;
+            background: #3bebff;
         }
         .sent {
-            background: #3bebff;
+            background: #fff;
             float: right;
             text-align: right;
         }
@@ -131,20 +131,26 @@
 <body>
 <div class="site-wrap">
     <div class="container-fluid">
-      <div class="site-mobile-menu-header">
-        <div class="row">
-            <div class="col-md-1" style="padding-right: 0px;">
-                <input type="button" value="Tất cả" style="width:100%;">
+        <div class="site-mobile-menu-header">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="{{ route('home') }}" class="btn col-md-4" role="button" style="border:0;border-radius:20%;background-color:#bfe6ff;"><i class="icomoon icon-home"></i></i></a>
+                    <a href="{{ url('/user') }}" class="btn col-md-4" role="button" style="border:0;border-radius:20%;background-color:#bfe6ff;"><i class="icomoon icon-arrow-left"></i></a>
+                </div>
             </div>
-            <div class="col-md-1" style="padding: 0;">
-                <input type="button" value="Mua" style="width:100%;">
-            </div>
-            <div class="col-md-1" style="padding: 0 15px 0 0;">
-                <input type="button" value="Bán" style="width:100%;">
+            <div class="row">
+                <div class="col-md-1" style="padding-right: 1px;border:0;">
+                    <button style="width:100%;border-radius:20%;">Tất cả</button>
+                </div>
+                <div class="col-md-1" style="padding: 0 1px 0 0;">
+                    <button style="width:100%;border-radius:20%;">Mua</button>
+                </div>
+                <div class="col-md-1" style="padding: 0 15px 0 0;">
+                    <button style="width:100%;border-radius:20%;">Bán</button>
+                </div>
             </div>
         </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
+        <div class="site-mobile-menu-body"></div>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -171,7 +177,7 @@
                 </div>
             </div>
 
-            <div class="col-md-9" id="messages" style="height: 500px;">
+            <div class="col-md-9" id="messages" style="height: 100%;">
             </div>
         </div>
     </div>
@@ -186,14 +192,69 @@
 <script>
     var receiver_id = '';
     var my_id = "{{ Auth::id() }}";
+    var user_id = getParameterByName('user_id');
     $(document).ready(function () {
-        // ajax setup form csrf token
         $.ajaxSetup({
             headers: {
                 "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content"),
             }
         });
+        if(user_id != null)
+        {
+            $.ajax({
+                url: "/final/doan2020/public/message_user/"+user_id,
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    if(!$(`.user#${response[0].i}`))
+                    {
+                        $('.users').children('li').before('<li class="user" id="'+response[0].id+'"><div class="media"><div class="media-left"><img src="'+response[0].avatar+'" alt=""></div><div class="media-body"><p class="name">'+response[0].name+'</p><p class="email">'+response[0].email+'</p></div></div></li>');
+                    }
+                    loadPusher();
+                    clickUser();
+                    typeMess();
+                }, 
+            });
+        }
+        clickUser();
+        loadPusher();
+        typeMess();
+    });
+// make a function to scroll down auto
+    function scrollToBottomFunc() {
+        $('.message-wrapper').animate({
+            scrollTop: $('.message-wrapper').get(0).scrollHeight
+        }, 50);
+    }
+    
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    function clickUser(){
+        $('.user').click(function() {
+            $('.user').removeClass('active');
+            $(this).addClass('active');
+            $(this).find('.pending').remove();
 
+            receiver_id = $(this).attr('id');
+            $.ajax({
+                type: "get",
+                url: "message/" + receiver_id,
+                cache: false,
+                success: function (data) {
+                    $('#messages').html(data);
+                    scrollToBottomFunc();
+                }
+            });
+        });
+    }
+    function loadPusher(){
         // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
 
@@ -222,23 +283,8 @@
                 }
             }
         });
-
-        $('.user').click(function() {
-            $('.user').removeClass('active');
-            $(this).addClass('active');
-            $(this).find('.pending').remove();
-
-            receiver_id = $(this).attr('id');
-            $.ajax({
-                type: "get",
-                url: "message/" + receiver_id,
-                cache: false,
-                success: function (data) {
-                    $('#messages').html(data);
-                    scrollToBottomFunc();
-                }
-            });
-        });
+    }
+    function typeMess(){
         $(document).on('keyup', '.input-text input.submit', function (e) {
             var message = $(this).val();
 
@@ -260,12 +306,6 @@
                 })
             }
         });
-    });
-    // make a function to scroll down auto
-    function scrollToBottomFunc() {
-        $('.message-wrapper').animate({
-            scrollTop: $('.message-wrapper').get(0).scrollHeight
-        }, 50);
     }
 </script>
 </body>

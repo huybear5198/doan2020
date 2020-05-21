@@ -12,7 +12,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        DB::table('location')->delete();
         DB::table('products')->delete();
         DB::table('type_products')->delete();
 
@@ -23,36 +22,19 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
         ]);
-
-        DB::table('location')->insert([
-            'city' => "TP Hồ Chí Minh",
-            'district' => "Gò Vấp",
-            'sub-district' => "6",
-            'street' => "Lê Đức Thọ",
+        DB::table('users')->insert([
+            'role_id' => 2,
+            'name' => 'User 1',
+            'avatar' => 'img/default-avatar.png',
+            'email' => 'user1@user.com',
+            'password' => Hash::make('password'),
         ]);
-        DB::table('location')->insert([
-            'city' => "TP Hồ Chí Minh",
-            'district' => "1",
-            'sub-district' => "2",
-            'street' => "Hàm Nghi",
-        ]);
-        DB::table('location')->insert([
-            'city' => "TP Hồ Chí Minh",
-            'district' => "8",
-            'sub-district' => "3",
-            'street' => "Phạm Thế Hiển",
-        ]);
-        DB::table('location')->insert([
-            'city' => "TP Hà Nội",
-            'district' => "Hoàn Kiếm",
-            'sub-district' => "6",
-            'street' => "Tràng Tiền",
-        ]);
-        DB::table('location')->insert([
-            'city' => "TP Hà Nội",
-            'district' => "Cầu Giấy",
-            'sub-district' => "Phường 10",
-            'street' => "Trần Duy Hưng",
+        DB::table('users')->insert([
+            'role_id' => 2,
+            'name' => 'User 2',
+            'avatar' => 'img/default-avatar.png',
+            'email' => 'user2@user.com',
+            'password' => Hash::make('password'),
         ]);
 
         DB::table('type_products')->insert([
@@ -73,7 +55,10 @@ class UserSeeder extends Seeder
             'price' => 100000,
             'quantity' => 10,
             'id_user' => 1,
-            'location_id' => 1,
+            'city' => "TP Hồ Chí Minh",
+            'district' => "Gò Vấp",
+            'sub_district' => "6",
+            'street' => "Lê Đức Thọ",
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
@@ -83,7 +68,10 @@ class UserSeeder extends Seeder
             'price' => 150000,
             'quantity' => 10,
             'id_user' => 1,
-            'location_id' => 2,
+            'city' => "TP Hồ Chí Minh",
+            'district' => "1",
+            'sub_district' => "2",
+            'street' => "Hàm Nghi",
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
@@ -93,7 +81,10 @@ class UserSeeder extends Seeder
             'price' => 500000,
             'quantity' => 10,
             'id_user' => 1,
-            'location_id' => 3,
+            'city' => "TP Hồ Chí Minh",
+            'district' => "8",
+            'sub_district' => "3",
+            'street' => "Phạm Thế Hiển",
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
@@ -103,7 +94,10 @@ class UserSeeder extends Seeder
             'price' => 1000000000,
             'quantity' => 1,
             'id_user' => 1,
-            'location_id' => 4,
+            'city' => "TP Hà Nội",
+            'district' => "Hoàn Kiếm",
+            'sub_district' => "6",
+            'street' => "Tràng Tiền",
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
@@ -113,7 +107,10 @@ class UserSeeder extends Seeder
             'price' => 2000000000,
             'quantity' => 1,
             'id_user' => 1,
-            'location_id' => 5,
+            'city' => "TP Hà Nội",
+            'district' => "Cầu Giấy",
+            'sub_district' => "Phường 10",
+            'street' => "Trần Duy Hưng",
             'image' => 'img/default-product.png',
         ]);
     }

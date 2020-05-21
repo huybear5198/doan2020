@@ -17,16 +17,29 @@ class MessageController extends Controller
 
     public function index()
     {
-        // select all users except logged in user
-        // $users = User::where('id', '!=', Auth::id())->get();
-
-        // count how many message are unread from the selected user
-        $users = DB::select("select users.id, users.name, users.avatar, users.email, count(is_read) as unread 
-        from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
-        where users.id != " . Auth::id() . " 
-        group by users.id, users.name, users.avatar, users.email");
-
+        $sender = DB::table('messages')->where('to',Auth::id())->pluck('from')->unique();
+        $receiver = DB::table('messages')->where('from',Auth::id())->pluck('to')->unique();
+        $all = $sender->concat($receiver)->unique()->reject(function($value,$key) {
+            return $value == Auth::id();
+        })->values()->toArray();
+        $users = DB::table('users')
+                                ->leftJoin('messages',function($join){
+                                    $join->on('users.id','=','messages.from')
+                                        ->where('is_read','=',0);
+                                })
+                                ->select('users.id','users.name','users.avatar','users.email', DB::raw('count(is_read) AS `unread`'))
+                                ->whereIn('users.id',$all)
+                                ->groupBy('users.id','users.name','users.avatar','users.email',`unread`)
+                                ->get();
         return view('general.message', ['users' => $users]);
+    }
+
+    public function createMessage($user_id)
+    {
+        $user = DB::table('users')->select('users.id','users.name','users.avatar','users.email')
+                                ->where('users.id','=',$user_id)
+                                ->get();
+        return $user;
     }
 
     public function getMessage($user_id)

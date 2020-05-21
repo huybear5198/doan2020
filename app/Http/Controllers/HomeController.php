@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\type_products;
-use App\products;
+use App\TypeProduct;
+use App\Product;
+use App\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        $categor1y = DB::table('type_products');
-    }
     public function getIndex()
     {
         $category = DB::table('type_products')->Paginate(6);
@@ -24,11 +24,125 @@ class HomeController extends Controller
         $tk_sanpham = DB::table('products')
                                 ->join('type_products', 'products.type_product', '=', 'type_products.id')
                                 ->where('products.name','like','%'.$req->q.'%')
-                                ->where('location','like','%'.$req->location.'%')
+                                ->orWhere('products.description','like','%'.$req->q.'%')
+                                ->where('city','like','%'.$req->city.'%')
+                                ->where('district','like','%'.$req->district.'%')
+                                ->where('sub_district','like','%'.$req->sub_district.'%')
+                                ->where('street','like','%'.$req->street.'%')
                                 ->where('type_product','like','%'.$req->category.'%')
                                 ->select('products.*', 'type_products.name as TypeProduct')
-                                ->get();
+                                ->Paginate(2);
         $searching = $req;
         return view('general.search',compact('tk_sanpham', 'searching'));
+    }
+
+    public function getProducts()
+    {
+        $products = DB::table('products')
+                                    ->join('type_products','products.type_product','=','type_products.id')
+                                    ->select('products.id','products.name','type_products.name as type','products.image','products.description','products.quantity','products.price',DB::raw('CONCAT("Thành Phố ",city,", Quận ", district,", Phường ",sub_district,", Đường ",street) AS location'),'products.updated_at')
+                                    ->where('products.id_user',Auth::id())
+                                    ->get();
+        return view('user.products',compact('products'));
+    }
+    public function updateUser(Request $req){
+        $this->validate($req, [
+            'name' => 'required',
+            'address' => 'required'
+        ]);
+        $user = User::find(Auth::id());
+        $user->name = $req->name;
+        $user->address =  $req->address;
+        if($req->avatar)
+        {
+            $user->avatar =  $req->avatar;
+        }
+        $user->save();
+        return back();
+    }
+
+    public function createProduct(Request $req)
+    {
+        $this->validate($req,
+            [
+                'name'=>'required',
+                'type_product'=>'required',
+                'quantity'=>'required',
+                'price'=>'required',
+                'city'=>'required',
+                'district'=>'required',
+                'sub_district'=>'required',
+                'street'=>'required',
+            ],
+            [
+                'name.required'=>'Vui lòng nhập sản phẩm',
+                'type_product.required'=>'Vui lòng nhập loại sản phẩm',
+                'quantity.required'=>'Vui lòng nhập số lượng',
+                'price.required'=>'Vui lòng nhập giá',
+                'city.required'=>'Vui lòng nhập thành phố',
+                'district.required'=>'Vui lòng nhập quận',
+                'sub_district.required'=>'Vui lòng nhập phường',
+                'street.required'=>'Vui lòng nhập đường',
+            ]);
+        $product = new Product;
+        $product->id_user = Auth::id();
+        $product->name = $req->name;
+        $product->type_product = $req->type_product;
+        
+        $product->image = Storage::disk(config('voyager.storage.disk'))->put("products/", $req->image);
+
+        $product->description = $req->description;
+        $product->quantity = $req->quantity;
+        $product->price = $req->price;
+        $product->city = $req->city;
+        $product->district = $req->district;
+        $product->sub_district = $req->sub_district;
+        $product->street = $req->street;
+        $product->save();
+        return back();
+    }
+
+    public function deleteProduct($id){
+        $product = Product::find($id);
+        if (isset($product->id)) {
+            if (Storage::disk(config('voyager.storage.disk'))->exists($product->image)) {
+                Storage::disk(config('voyager.storage.disk'))->delete($product->image);
+            }
+            $product->delete();
+        }
+        return response()->json("Xóa sản phẩm thành công");
+    }
+
+    public function editProduct($id)
+    {
+        $product = DB::table('products')
+                            ->join('type_products','products.type_product','=','type_products.id')
+                            ->select('products.id','products.name','products.type_product','products.image','products.description','products.quantity','products.price','products.city','products.district','products.sub_district','products.street','products.updated_at')
+                            ->where('products.id',$id)
+                            ->get();
+        return response()->json($product);
+    }
+
+    public function updateProduct(Request $req,$id)
+    {
+        $product = Product::find($id);
+        $product->name = $req->name;
+        $product->type_product = $req->type_product;
+        if($req->hasFile('image'))
+        {
+            if (Storage::disk(config('voyager.storage.disk'))->exists($product->image)) {
+                Storage::disk(config('voyager.storage.disk'))->delete($product->image);
+            }
+            $product->image = Storage::disk(config('voyager.storage.disk'))->put('products',$req->image);
+        }
+        $product->description = $req->description;
+        $product->quantity = $req->quantity;
+        $product->price = $req->price;
+        $product->city = $req->city;
+        $product->district = $req->district;
+        $product->sub_district = $req->sub_district;
+        $product->street = $req->street;
+        $product->save();
+        return response()->json("Sửa sản phẩm thành công");
     }
 }
