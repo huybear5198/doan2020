@@ -16,6 +16,14 @@ Route::get('/home',[
 	'as'=>'home',
 	'uses'=>'HomeController@getIndex'
 ]);
+Route::get('category/{id}',[
+	'as'=>'category',
+	'uses'=>'HomeController@getCategory'
+]);
+Route::get('product/{id}',[
+	'as'=>'home',
+	'uses'=>'HomeController@getProduct'
+]);
 route::get('search',[
 	'as'=>'search',
 	'uses'=>'HomeController@getSearch'
