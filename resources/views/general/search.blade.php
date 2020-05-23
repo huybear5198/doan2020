@@ -15,20 +15,15 @@
                 <div class="col-lg-8">
                     @foreach($tk_sanpham as $sp)
                         <div class="d-block d-md-flex listing-horizontal">
-                            <a href="#" class="img d-block" style="background-image: url('{{ Voyager::image( $sp->image ) }}')">
+                            <a href="{{ route('single_product',$sp->id) }}" class="img d-block" style="background-image: url('{{ Voyager::image( $sp->image ) }}')">
                                 <span class="category">{{ $sp->TypeProduct }}</span>
                             </a>
                             <div class="lh-content">
                                 <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                <h3><a href="#">{{ $sp->name }}</a></h3>
+                                <h3><a href="{{ route('single_product',$sp->id) }}">{{ $sp->name }}</a></h3>
                                 <p>{{ $sp->description }}</p>
                                 <p>
-                                <span class="icon-star text-warning"></span>
-                                <span class="icon-star text-warning"></span>
-                                <span class="icon-star text-warning"></span>
-                                <span class="icon-star text-warning"></span>
-                                <span class="icon-star text-secondary"></span>
-                                <span>(492 Reviews)</span>
+                                    <span>{{ $sp->price }} VNĐ</span>
                                 </p>
                             </div>
                         </div>

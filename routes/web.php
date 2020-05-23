@@ -16,13 +16,17 @@ Route::get('/home',[
 	'as'=>'home',
 	'uses'=>'HomeController@getIndex'
 ]);
+Route::get('/user_detail/{id}',[
+	'as'=>'detail_user',
+	'uses'=>'HomeController@getUser'
+]);
 Route::get('category/{id}',[
 	'as'=>'category',
 	'uses'=>'HomeController@getCategory'
 ]);
 Route::get('product/{id}',[
-	'as'=>'home',
-	'uses'=>'HomeController@getProduct'
+	'as'=>'single_product',
+	'uses'=>'HomeController@getSingleProduct'
 ]);
 route::get('search',[
 	'as'=>'search',

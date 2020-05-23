@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
         DB::table('type_products')->delete();
 
         DB::table('users')->insert([
+            'id' => 1,
             'role_id' => 1,
             'name' => 'Admin',
             'avatar' => 'img/default-avatar.png',
@@ -23,6 +24,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
         DB::table('users')->insert([
+            'id' => 2,
             'role_id' => 2,
             'name' => 'User 1',
             'avatar' => 'img/default-avatar.png',
@@ -30,6 +32,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
         DB::table('users')->insert([
+            'id' => 3,
             'role_id' => 2,
             'name' => 'User 2',
             'avatar' => 'img/default-avatar.png',
@@ -38,17 +41,20 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('type_products')->insert([
+            'id' => 1,
             'name' => "Xe",
             'description' => 'Các loại Xe',
             'image' => 'img/car.png',
         ]);
         DB::table('type_products')->insert([
+            'id' => 2,
             'name' => "Bất động sản",
             'description' => 'Nhà cửa',
             'image' => 'img/building.png',
         ]);
 
         DB::table('products')->insert([
+            'id' => 1,
             'name' => "Xe 1",
             'type_product' => 1,
             'description' => 'Xe 1 Xe 1',
@@ -62,6 +68,7 @@ class UserSeeder extends Seeder
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
+            'id' => 2,
             'name' => "Xe 2",
             'type_product' => 1,
             'description' => 'Xe 2 Xe 2',
@@ -75,6 +82,7 @@ class UserSeeder extends Seeder
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
+            'id' => 3,
             'name' => "Xe 3",
             'type_product' => 1,
             'description' => 'Xe 3 Xe 3',
@@ -88,6 +96,7 @@ class UserSeeder extends Seeder
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
+            'id' => 4,
             'name' => "Nhà 1",
             'type_product' => 2,
             'description' => 'Nhà 1 Nhà 1',
@@ -101,6 +110,7 @@ class UserSeeder extends Seeder
             'image' => 'img/default-product.png',
         ]);
         DB::table('products')->insert([
+            'id' => 5,
             'name' => "Nhà 2",
             'type_product' => 2,
             'description' => 'Nhà 2',

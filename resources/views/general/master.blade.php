@@ -80,6 +80,28 @@
                           loop: true,
                           showCursor: true
     });
+    $(document).ready(function() {  
+        $('button.message_user').on('click',function() {
+            var user_id = $(this).attr('value');
+            $(location).attr('href', `../message?user_id=${user_id}`);
+        });
+        $('.get_phone').on('click',function() {
+          var user_id = $(this).attr('value');
+          var that = $(this);
+          $.ajax({
+            type: "GET",
+            url: "../user_detail/"+user_id,
+            cache: false,
+            success: function (response) {
+              if(response == "fail") {
+                $(location).attr('href','../user/login')
+              }else{
+                that.text(response.phone)
+              }
+            },
+          });
+        });
+    });
   </script>
 
   <script src="{{ asset('browse/js/main.js') }}"></script>

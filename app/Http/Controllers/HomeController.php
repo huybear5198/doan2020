@@ -24,14 +24,14 @@ class HomeController extends Controller
         $tk_sanpham = DB::table('products')
                                 ->join('type_products', 'products.type_product', '=', 'type_products.id')
                                 ->where('products.name','like','%'.$req->q.'%')
-                                ->Where('products.description','like','%'.$req->q.'%')
+                                ->where('products.description','like','%'.$req->q.'%')
+                                ->where('products.type_product','like','%'.$req->category.'%')
                                 ->where('products.city','like','%'.$req->city.'%')
                                 ->where('products.district','like','%'.$req->district.'%')
                                 ->where('products.sub_district','like','%'.$req->sub_district.'%')
                                 ->where('products.street','like','%'.$req->street.'%')
-                                ->where('products.type_product','like','%'.$req->category.'%')
                                 ->select('products.*', 'type_products.name as TypeProduct')
-                                ->Paginate(2);
+                                ->Paginate(10);
         $searching = $req;
         return view('general.search',compact('tk_sanpham', 'searching'));
     }
@@ -53,9 +53,12 @@ class HomeController extends Controller
         $user = User::find(Auth::id());
         $user->name = $req->name;
         $user->address =  $req->address;
-        if($req->avatar)
+        if($req->hasFile('avatar'))
         {
-            $user->avatar =  $req->avatar;
+            if (Storage::disk(config('voyager.storage.disk'))->exists($user->avatar)) {
+                Storage::disk(config('voyager.storage.disk'))->delete($user->avatar);
+            }
+            $user->avatar = Storage::disk(config('voyager.storage.disk'))->put('users',$req->avatar);
         }
         $user->save();
         return back();
@@ -160,5 +163,19 @@ class HomeController extends Controller
                         ->select('products.*', 'users.name as store')
                         ->first();
         return view('general.single_product',compact('single_product'));
+    }
+
+    public function getUser($id)
+    {
+        if(Auth::check()){
+            $user = DB::table('users')
+                        ->where('users.id',$id)
+                        ->select('users.*')
+                        ->first();
+            return response()->json($user);
+        }else{
+            return 'fail';
+        }
+        
     }
 }

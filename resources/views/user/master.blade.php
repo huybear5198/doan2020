@@ -45,12 +45,7 @@
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script src="{{ asset('admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
     <script>
-        $(document).ready(function() {  
-            $('.message_user').on('click',function() {
-                var user_id = $(this).attr('value');
-                $(location).attr('href', '{{ route("message_page","user_id=2") }}');
-                
-            });
+            $(document).ready(function() {
 
             var table = $('#example').DataTable({
                 "order": [ 7, "desc" ],

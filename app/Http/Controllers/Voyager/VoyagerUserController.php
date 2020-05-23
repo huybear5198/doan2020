@@ -16,6 +16,7 @@ class VoyagerUserController extends BaseVoyagerUserController
     	[
     		'name'=>'required|min:8',
 			'email'=>'required|email|unique:users',
+			'phone'=>'required',
 			'password'=>'required|min:8',//'required|min:8|regex:/^.+@.+$/i',
     		'repassword'=>'required|same:password',
 			'agree-term'=>'required',
@@ -23,7 +24,8 @@ class VoyagerUserController extends BaseVoyagerUserController
 
     	[
     		'name.required'=>'Vui lòng nhập Họ tên',
-    		'name.min'=>'Họ tên phải có ít nhất 8 ký tự',
+			'name.min'=>'Họ tên phải có ít nhất 8 ký tự',
+			'phone.required'=>'Vui lòng nhập Số điện thoại',
     		'email.required'=>'Vui lòng nhập Email',
 			'email.email'=>'Vui lòng điền đúng email',
 			'email.unique'=>'Email đã được sử dụng',
@@ -37,7 +39,8 @@ class VoyagerUserController extends BaseVoyagerUserController
 
     );
     	$user = new User;
-    	$user->name = $req->name;
+		$user->name = $req->name;
+		$user->phone = $req->phone;
     	$user->email = $req->email;
     	$user->password = Hash::make($req->password);
     	$user->role_id = 2;

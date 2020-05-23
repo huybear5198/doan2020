@@ -96,13 +96,13 @@
         }
     </style>
     <div class="container emp-profile">
-        <form method="post" action="{{ route('update_user') }}">
+        <form method="post" action="{{ route('update_user') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('patch') }}
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="{{ Auth::user()->avatar }}" alt=""/>
+                        <img src="{{ Voyager::image( Auth::user()->avatar ) }}" alt=""/>
                         <div class="file btn btn-lg btn-primary">
                             Change Photo
                             <input type="file" name="avatar"/>
@@ -155,7 +155,7 @@
                                     <label>Ngày tạo</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ Auth::user()->created_at }}</p>
+                                    <p>{{ date('d-m-Y', strtotime(Auth::user()->created_at)) }}</p>
                                 </div>
                             </div>
                         </div>
@@ -168,5 +168,4 @@
             </div>
         </form>
     </div>
-    <button class="btn btn-primary message_user" value="3">Messages</button>
 @stop

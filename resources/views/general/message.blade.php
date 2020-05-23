@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{ asset('browse/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('browse/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('browse/fonts/icomoon/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('browse/css/bootstrap-datepicker.css') }}">
 
     <style>
         /* width */
@@ -185,8 +184,6 @@
 
 <script src="{{ asset('browse/js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('browse/js/jquery-ui.js') }}"></script>
-<script src="{{ asset('browse/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('browse/js/bootstrap-datepicker.min.js') }}"></script>
 <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
 
 <script>
@@ -199,6 +196,7 @@
                 "X-CSRF-Token": $('meta[name="csrf-token"]').attr("content"),
             }
         });
+
         if(user_id != null)
         {
             $.ajax({
@@ -206,21 +204,25 @@
                 type: "GET",
                 dataType: "json",
                 success: function (response) {
-                    if(!$(`.user#${response[0].i}`))
+                    if($(`.user#${response[0].id}`).length === 0)
                     {
-                        $('.users').children('li').before('<li class="user" id="'+response[0].id+'"><div class="media"><div class="media-left"><img src="'+response[0].avatar+'" alt=""></div><div class="media-body"><p class="name">'+response[0].name+'</p><p class="email">'+response[0].email+'</p></div></div></li>');
+                        if($('.users').children('li').length != 0){
+                            $('.users').children('li:first-child').before('<li class="user" id="'+response[0].id+'"><div class="media"><div class="media-left"><img src="storage/'+response[0].avatar+'" alt=""></div><div class="media-body"><p class="name">'+response[0].name+'</p><p class="email">'+response[0].email+'</p></div></div></li>');
+                        }else{
+                            $('.users').append('<li class="user" id="'+response[0].id+'"><div class="media"><div class="media-left"><img src="'+response[0].avatar+'" alt=""></div><div class="media-body"><p class="name">'+response[0].name+'</p><p class="email">'+response[0].email+'</p></div></div></li>');
+                        }
                     }
                     loadPusher();
                     clickUser();
                     typeMess();
-                }, 
+                },
             });
         }
-        clickUser();
         loadPusher();
+        clickUser();
         typeMess();
     });
-// make a function to scroll down auto
+    // make a function to scroll down auto
     function scrollToBottomFunc() {
         $('.message-wrapper').animate({
             scrollTop: $('.message-wrapper').get(0).scrollHeight
@@ -257,11 +259,9 @@
     function loadPusher(){
         // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
-
         var pusher = new Pusher('d63270cb9941f4f3a67b', {
             cluster: 'ap1'
         });
-
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function (data) {
             // alert(JSON.stringify(data));
@@ -274,7 +274,6 @@
                 } else {
                     // if receiver is not seleted, add notification for that user
                     var pending = parseInt($('#' + data.from).find('.pending').html());
-
                     if (pending) {
                         $('#' + data.from).find('.pending').html(pending + 1);
                     } else {
@@ -287,11 +286,9 @@
     function typeMess(){
         $(document).on('keyup', '.input-text input.submit', function (e) {
             var message = $(this).val();
-
             // check if enter key is pressed and message is not null also receiver is selected
             if (e.keyCode == 13 && message != '' && receiver_id != '') {
                 $(this).val(''); // while pressed enter text box will be empty
-
                 var datastr = "receiver_id=" + receiver_id + "&message=" + message;
                 $.ajax({
                     type: "post",

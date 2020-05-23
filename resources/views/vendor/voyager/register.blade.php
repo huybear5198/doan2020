@@ -31,6 +31,10 @@
                                 <input type="text" name="name" id="name" placeholder="Họ tên"/>
                             </div>
                             <div class="form-group">
+                                <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="tel" name="phone" id="phone" placeholder="Số điện thoại" pattern="[0-9].{8,}"/>
+                            </div>
+                            <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Email"/>
                             </div>
