@@ -8,27 +8,27 @@
             <p class="color-black-opacity-5">Chợ Mới tự hào là Website rao vặt được ưa chuộng hàng đầu Việt Nam. Hơn hàng ngàn món hời từ Bất động sản, Nhà cửa, Xe cộ, Đồ điện tử, Thú cưng, Vật dụng cá nhân... đến tìm việc làm, tìm thông tin tuyển dụng, các dịch vụ - du lịch được đăng tin, rao bán trên Chợ Mới.</p>
           </div>
         </div>
-        
+
        <!-- <div class="owl-carousel owl-theme" id="bestSellerCarousel"> -->
         <div class="row">
           @foreach($category as $ct)
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" id="myDIV">  
+          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4" id="myDIV">
             <div class="listing-item">
               <div class="listing-image">
                 <img style="width:50%; display: inline-block; float:left;" src="{{ Voyager::image( $ct->image ) }}" class="img-fluid">
               </div>
               <div class="listing-item-content">
-                <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
-                <a class="px-3 mb-3 category" href="#">{{$ct->name}}</a>
-                <h2 class="mb-1"><a href="listings-single.html">{{$ct->description}}</a></h2>
+                <a href="{{ route('category',$ct->id) }}" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                <a class="px-3 mb-3 category" href="{{ route('category',$ct->id) }}">{{$ct->name}}</a>
+                <h2 class="mb-1"><a href="{{ route('category',$ct->id) }}">{{$ct->description}}</a></h2>
                 <span class="address">Chợ Mới đi cùng các bạn</span>
               </div>
             </div>
           </div>
-          @endforeach  
+          @endforeach
         </div>
-        <div class="row">{{$category->links()}}</div>     
-        <!--</div> -->  
+        <div class="row">{{$category->links()}}</div>
+        <!--</div> -->
 
       </div>
     </div>
@@ -37,8 +37,8 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">How It Works</h2>
-            <p class="color-black-opacity-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+            <h2 class="font-weight-light text-primary">Hướng dẫn mua hàng - bán hàng</h2>
+            <p class="color-black-opacity-5">Mua hàng - Bán hàng một cách nhanh gọn</p>
           </div>
         </div>
 
@@ -76,7 +76,7 @@
         </div>
       </div>
     </div>
-   
+
     <div class="py-5 bg-primary">
       <div class="container">
         <div class="row">
@@ -85,7 +85,7 @@
             <p class="mb-0 text-white">Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn</p>
           </div>
           <div class="col-lg-4">
-            <p class="mb-0"><a href="signup.html" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Đăng ký</a></p>
+            <p class="mb-0"><a href="{{ route('register') }}" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Đăng ký</a></p>
           </div>
         </div>
       </div>

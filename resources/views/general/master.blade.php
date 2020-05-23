@@ -23,9 +23,17 @@
     <link rel="stylesheet" href="{{ asset('browse/css/rangeslider.css') }}">
 
     <link rel="stylesheet" href="{{ asset('browse/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.2/js/swiper.min.js"></script>
   </head>
   <body>
-  
+
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -36,14 +44,14 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
+
   @include('general.header')
 
-  @include('general.cover')    
-      
-    
+  @include('general.cover')
+
+
   @yield('content')
-    
+
   @include('general.footer')
   </div>
 
@@ -59,7 +67,7 @@
   <script src="{{ asset('browse/js/bootstrap-datepicker.min.js') }}"></script>
   <script src="{{ asset('browse/js/aos.js') }}"></script>
   <script src="{{ asset('browse/js/rangeslider.min.js') }}"></script>
-  
+
 
   <script src="{{ asset('browse/js/typed.js') }}"></script>
   <script>
@@ -75,6 +83,6 @@
   </script>
 
   <script src="{{ asset('browse/js/main.js') }}"></script>
-  
+
   </body>
 </html>

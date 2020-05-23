@@ -2,7 +2,7 @@
 
       <div class="container">
         <div class="row align-items-center">
-          
+
           <div class="col-11 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="{{route('home')}}" class="text-white h2 mb-0">Chợ mới</a></h1>
           </div>
@@ -14,18 +14,9 @@
                 <li class="has-children">
                   <a href="#"><span>Danh mục</span></a>
                   <ul class="dropdown arrow-top">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                    <li class="has-children">
-                      <a href="#">Dropdown</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                        <li><a href="#">Menu Four</a></li>
-                      </ul>
-                    </li>
+                    @foreach($category_all as $cat)
+                    <li><a href="{{ route('category',$cat->id) }}">{{ $cat->name }}</a></li>
+                    @endforeach
                   </ul>
                 </li>
                 <li><a href="{{route('about')}}"><span>Giới thiệu</span></a></li>
@@ -48,5 +39,5 @@
 
         </div>
       </div>
-      
+
     </header>

@@ -24,12 +24,12 @@ class HomeController extends Controller
         $tk_sanpham = DB::table('products')
                                 ->join('type_products', 'products.type_product', '=', 'type_products.id')
                                 ->where('products.name','like','%'.$req->q.'%')
-                                ->orWhere('products.description','like','%'.$req->q.'%')
-                                ->where('city','like','%'.$req->city.'%')
-                                ->where('district','like','%'.$req->district.'%')
-                                ->where('sub_district','like','%'.$req->sub_district.'%')
-                                ->where('street','like','%'.$req->street.'%')
-                                ->where('type_product','like','%'.$req->category.'%')
+                                ->Where('products.description','like','%'.$req->q.'%')
+                                ->where('products.city','like','%'.$req->city.'%')
+                                ->where('products.district','like','%'.$req->district.'%')
+                                ->where('products.sub_district','like','%'.$req->sub_district.'%')
+                                ->where('products.street','like','%'.$req->street.'%')
+                                ->where('products.type_product','like','%'.$req->category.'%')
                                 ->select('products.*', 'type_products.name as TypeProduct')
                                 ->Paginate(2);
         $searching = $req;
@@ -88,7 +88,7 @@ class HomeController extends Controller
         $product->id_user = Auth::id();
         $product->name = $req->name;
         $product->type_product = $req->type_product;
-        
+
         $product->image = Storage::disk(config('voyager.storage.disk'))->put("products/", $req->image);
 
         $product->description = $req->description;
@@ -144,5 +144,21 @@ class HomeController extends Controller
         $product->street = $req->street;
         $product->save();
         return response()->json("Sửa sản phẩm thành công");
+    }
+
+    public function getCategory($id)
+    {
+        $product = Product::where('type_product',$id)->paginate(3);
+        return view('general.category',compact('product'));
+    }
+
+    public function getSingleProduct($id)
+    {
+        $single_product = DB::table('products')
+                        ->join('users','users.id','=','products.id_user')
+                        ->where('products.id',$id)
+                        ->select('products.*', 'users.name as store')
+                        ->first();
+        return view('general.single_product',compact('single_product'));
     }
 }
