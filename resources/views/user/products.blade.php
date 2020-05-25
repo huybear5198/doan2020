@@ -14,7 +14,7 @@
         style="cursor: pointer; float:right;margin-right:10px;" 
         data-toggle="modal" 
         data-target="#addModal">Thêm sản phẩm</a>
-    <table id="example" class="display" style="width:100%">
+    <table id="products" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>Sản phẩm</th>
@@ -268,6 +268,7 @@
                     <button class="btn btn-primary" id="confirm_delete">Có</button>
                     <button class="btn btn-light border-dark" data-dismiss="modal">Không</button>
                 </div>
+            </div>
         </div>
     </div>
 @stop

@@ -27,7 +27,7 @@
                     <!-- -->
                     
                     <div class="signin-image">
-                        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                        <a href="{{route('home')}}"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
                         <figure><img src="../signin/images/signin-image.jpg" alt="sing up image"></figure>
                         <a href="{{ route('register') }}" class="signup-image-link">Tạo tài khoản</a>
                     </div>

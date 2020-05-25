@@ -83,7 +83,7 @@
     $(document).ready(function() {  
         $('button.message_user').on('click',function() {
             var user_id = $(this).attr('value');
-            $(location).attr('href', `../message?user_id=${user_id}`);
+            $(location).attr('href', `../user/message?user_id=${user_id}`);
         });
         $('.get_phone').on('click',function() {
           var user_id = $(this).attr('value');

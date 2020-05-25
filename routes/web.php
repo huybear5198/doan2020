@@ -52,10 +52,22 @@ Route::get('user/sanpham/delete/{id}',[
 	'as' => 'delete_product',
 	'uses' => 'HomeController@deleteProduct'
 ]);
-Route::get('/message', 'MessageController@index')->name('message_page');
-Route::get('/message/{id}', 'MessageController@getMessage')->name('message_content');
-Route::post('message', 'MessageController@sendMessage');
-Route::get('/message_user/{id}', 'MessageController@createMessage')->name('message_user');
+Route::get('user/purchase_history',[
+	'as' => 'purchase_history',
+	'uses' => 'HomeController@getPurchaseHistory'
+]);
+Route::get('user/change_status_purchase/{id}',[
+	'as' => 'change_status_purchase',
+	'uses' => 'HomeController@changeStatusPurchase'
+]);
+Route::post('sell_product',[
+	'as' => 'sell_product',
+	'uses' => 'MessageController@postSellProduct'
+]);
+Route::get('user/message', 'MessageController@index')->name('message_page');
+Route::get('user/message/{id}', 'MessageController@getMessage')->name('message_content');
+Route::post('user/message', 'MessageController@sendMessage');
+Route::get('user/message_user/{id}', 'MessageController@createMessage')->name('message_user');
 Auth::routes();
 
 Route::get('/logout', function(){

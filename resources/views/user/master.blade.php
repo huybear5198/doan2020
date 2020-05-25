@@ -45,9 +45,9 @@
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script src="{{ asset('admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
     <script>
-            $(document).ready(function() {
+        $(document).ready(function() {
 
-            var table = $('#example').DataTable({
+            var table_products = $('#products').DataTable({
                 "order": [ 7, "desc" ],
                 "sDom": "Rlfrtip",
                 "oLanguage": {
@@ -55,6 +55,24 @@
                     "sLengthMenu": "Hiện _MENU_ sản phẩm",
                     "sEmptyTable": "Không có sản phẩm.",
                     "sInfo": "",
+                    "sInfoEmpty": "",
+                    "oPaginate": {
+                        "sFirst": "Trang đầu",
+                        "sLast": "Trang cuối",
+                        "sNext": "Tiếp",
+                        "sPrevious": "Trước"
+                    },
+                },
+            });
+            var table_purchase_history = $('#purchase_history').DataTable({
+                "order": [ 6, "desc" ],
+                "sDom": "Rlfrtip",
+                "oLanguage": {
+                    "sSearch": "Tìm kiếm",
+                    "sLengthMenu": "Hiện _MENU_ giao dịch",
+                    "sEmptyTable": "Không có lịch sử giao dịch.",
+                    "sInfo": "",
+                    "sInfoEmpty": "",
                     "oPaginate": {
                         "sFirst": "Trang đầu",
                         "sLast": "Trang cuối",
@@ -64,7 +82,7 @@
                 },
             });
             $('.btn.btn-danger').on('click',function(){
-                var id_product = $(this).attr('data-id')
+                var id_product = $(this).attr('data-id');
                 $('#confirm_delete').on('click',function(){
                     $.ajax({
                         type: "GET",
@@ -72,6 +90,40 @@
                         dataType: "json",
                         success: function(response){
                             $(location).attr('href', '../user/sanpham/')
+                        }
+                    });
+                });
+            });
+            $('.btn.btn-primary.complete_purchase').on('click',function(){
+                var id_purchase = $(this).attr('data-id');
+                var status = $(this).attr('data-status');
+                $('#confirm_complete').on('click',function(){
+                    $.ajax({
+                        type: "GET",
+                        url: "../user/change_status_purchase/"+id_purchase,
+                        data: {
+                            status: status,
+                        },
+                        dataType: "json",
+                        success: function(response){
+                            $(location).attr('href', '../user/purchase_history')
+                        }
+                    });
+                });
+            });
+            $('.btn.btn-danger.cancel_purchase').on('click',function(){
+                var id_purchase = $(this).attr('data-id');
+                var status = $(this).attr('data-status');
+                $('#confirm_cancel').on('click',function(){
+                    $.ajax({
+                        type: "GET",
+                        url: "../user/change_status_purchase/"+id_purchase,
+                        data: {
+                            status: status,
+                        },
+                        dataType: "json",
+                        success: function(response){
+                            $(location).attr('href', '../user/purchase_history')
                         }
                     });
                 });

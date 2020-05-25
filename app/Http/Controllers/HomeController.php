@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\TypeProduct;
 use App\Product;
 use App\User;
+use App\PurchaseHistory;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -177,5 +178,42 @@ class HomeController extends Controller
             return 'fail';
         }
         
+    }
+
+    public function getPurchaseHistory()
+    {
+        $seller_purchase_history = DB::table('purchase_history')
+                                        ->where('seller',Auth::id())
+                                        ->join('products','products.id','=','purchase_history.product_id')
+                                        ->join('users','users.id','=','purchase_history.buyer')
+                                        ->select('purchase_history.id','users.email as buyer','products.name','products.image','products.price','purchase_history.quantity','purchase_history.updated_at','purchase_history.status')
+                                        ->get();
+        $buyer_purchase_history = DB::table('purchase_history')
+                                        ->where('buyer',Auth::id())
+                                        ->join('products','products.id','=','purchase_history.product_id')
+                                        ->join('users','users.id','=','purchase_history.seller')
+                                        ->select('purchase_history.id','users.email as seller','products.name','products.image','products.price','purchase_history.quantity','purchase_history.updated_at','purchase_history.status')
+                                        ->get();
+        $purchase_history = $seller_purchase_history->merge($buyer_purchase_history);
+        // return response()->json($purchase_history);
+        return view('user.purchase_history', compact('purchase_history'));
+    }
+
+    public function changeStatusPurchase(Request $req,$id_purchase)
+    {
+        if($req->status == "complete")
+        {
+            $purchase = PurchaseHistory::find($id_purchase);
+            $purchase->status = 2;
+            $purchase->save();
+            return response()->json("Đã hoàn thành giao dịch");
+        }
+        elseif($req->status == "cancel")
+        {
+            $purchase = PurchaseHistory::find($id_purchase);
+            $purchase->status = 0;
+            $purchase->save();
+            return response()->json("Đã hủy giao dịch");
+        }
     }
 }

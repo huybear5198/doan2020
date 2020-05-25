@@ -3,13 +3,13 @@
   <head>
     <title>Chợ mới</title>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('browse/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('browse/css/jquery-ui.css') }}">
+    
+    <link href="{{ asset('admin/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('browse/fonts/icomoon/style.css') }}">
 
     <style>
@@ -113,7 +113,17 @@
             background: #eeeeee;
         }
         input[type=text] {
-            width: 100%;
+            width: 80%;
+            padding: 12px 20px;
+            margin: 15px 0 0 0;
+            display: inline-block;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid #cccccc;
+        }
+        .profile {
+            width: 18%;
             padding: 12px 20px;
             margin: 15px 0 0 0;
             display: inline-block;
@@ -131,12 +141,7 @@
 <div class="site-wrap">
     <div class="container-fluid">
         <div class="site-mobile-menu-header">
-            <div class="row">
-                <div class="col-md-2">
-                    <a href="{{ route('home') }}" class="btn col-md-4" role="button" style="border:0;border-radius:20%;background-color:#bfe6ff;"><i class="icomoon icon-home"></i></i></a>
-                    <a href="{{ url('/user') }}" class="btn col-md-4" role="button" style="border:0;border-radius:20%;background-color:#bfe6ff;"><i class="icomoon icon-arrow-left"></i></a>
-                </div>
-            </div>
+            @include('user.header')
             <div class="row">
                 <div class="col-md-1" style="padding-right: 1px;border:0;">
                     <button style="width:100%;border-radius:20%;">Tất cả</button>
@@ -181,7 +186,10 @@
         </div>
     </div>
 </div>
-
+<!-- jQuery -->
+<script src="{{ asset('admin/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('browse/js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('browse/js/jquery-ui.js') }}"></script>
 <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
@@ -197,10 +205,13 @@
             }
         });
 
+        loadPusher();
+        clickUser();
+        typeMess();
         if(user_id != null)
         {
             $.ajax({
-                url: "/final/doan2020/public/message_user/"+user_id,
+                url: "/final/doan2020/public/user/message_user/"+user_id,
                 type: "GET",
                 dataType: "json",
                 success: function (response) {
@@ -218,9 +229,6 @@
                 },
             });
         }
-        loadPusher();
-        clickUser();
-        typeMess();
     });
     // make a function to scroll down auto
     function scrollToBottomFunc() {
@@ -260,7 +268,7 @@
         // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
         var pusher = new Pusher('d63270cb9941f4f3a67b', {
-            cluster: 'ap1'
+            cluster: 'ap1',
         });
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function (data) {
