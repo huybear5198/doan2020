@@ -53,11 +53,13 @@
                         <a class="btn btn-primary complete_purchase" 
                             style="cursor: pointer; margin-right: 10px;" 
                             data-toggle="modal" 
-                            data-target="#completeModal" data-id="{{ $one->id }}" data-status="complete">Hoàn thành</a>
+                            data-target="#completeModal" data-id="{{ $one->id }}" data-status="complete"
+                            @if($one->status == 0 || $one->status == 2) disabled @endif>Hoàn thành</a>
                         <a class="btn btn-danger cancel_purchase" 
                                 style="cursor: pointer;" 
                                 data-toggle="modal" 
-                                data-target="#cancelModal" data-id="{{ $one->id }}" data-status="cancel">Hủy</a>
+                                data-target="#cancelModal" data-id="{{ $one->id }}" data-status="cancel"
+                                @if($one->status == 0 || $one->status == 2) disabled @endif>Hủy</a>
                     </td>
                 </tr>
             @endforeach

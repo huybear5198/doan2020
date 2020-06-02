@@ -104,7 +104,7 @@
                     <div class="profile-img">
                         <img src="{{ Voyager::image( Auth::user()->avatar ) }}" alt=""/>
                         <div class="file btn btn-lg btn-primary">
-                            Change Photo
+                            Đổi avatar
                             <input type="file" name="avatar"/>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                     <div class="profile-head">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông tin cá nhân</a>
                             </li>
                         </ul>
                         <div class="tab-content profile-tab" id="myTabContent">
@@ -156,6 +156,14 @@
                                 </div>
                                 <div class="col-md-6">
                                     <p>{{ date('d-m-Y', strtotime(Auth::user()->created_at)) }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Cấp độ khách hàng thân thiết</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ Auth::user()->loyal_customer()->first()->level }}</p>
                                 </div>
                             </div>
                         </div>

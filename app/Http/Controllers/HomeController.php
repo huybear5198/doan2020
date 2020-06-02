@@ -7,6 +7,7 @@ use App\TypeProduct;
 use App\Product;
 use App\User;
 use App\PurchaseHistory;
+use App\LoyalCustomer;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -204,6 +205,8 @@ class HomeController extends Controller
         if($req->status == "complete")
         {
             $purchase = PurchaseHistory::find($id_purchase);
+            self::setLoyalCustomer($purchase->seller);
+            self::setLoyalCustomer($purchase->buyer);
             $purchase->status = 2;
             $purchase->save();
             return response()->json("Đã hoàn thành giao dịch");
@@ -215,5 +218,73 @@ class HomeController extends Controller
             $purchase->save();
             return response()->json("Đã hủy giao dịch");
         }
+    }
+    
+    public function setLoyalCustomer($user_id)
+    {
+        $total_sell = DB::table('purchase_history')
+                                    ->where('seller',$user_id)
+                                    ->join('products','products.id','=','purchase_history.product_id')
+                                    ->select('purchase_history.product_id',DB::raw('sum(purchase_history.quantity)*products.price as total'))
+                                    ->groupBy('purchase_history.product_id')
+                                    ->get();
+        $total_buy = DB::table('purchase_history')
+                                    ->where('buyer',$user_id)
+                                    ->join('products','products.id','=','purchase_history.product_id')
+                                    ->select('purchase_history.product_id',DB::raw('sum(purchase_history.quantity)*products.price as total'))
+                                    ->groupBy('purchase_history.product_id')
+                                    ->get();
+        $sum = 0;
+        foreach ($total_sell as $one) {
+            $sum += $one->total;
+        }
+        foreach ($total_buy as $one) {
+            $sum += $one->total;
+        }
+        $level;
+        if($sum>=1000000 && $sum<5000000)
+        {
+            $level = 1;
+        }
+        elseif($sum>=5000000 && $sum<20000000)
+        {
+            $level = 2;
+        }
+        elseif($sum>=20000000 && $sum<50000000)
+        {
+            $level = 3;
+        }
+        elseif($sum>=50000000 && $sum<100000000)
+        {
+            $level = 4;
+        }
+        elseif($sum>=100000000 && $sum<500000000)
+        {
+            $level = 5;
+        }
+        elseif($sum>=500000000 && $sum<1000000000)
+        {
+            $level = 6;
+        }
+        elseif($sum>=1000000000 && $sum<2000000000)
+        {
+            $level = 7;
+        }
+        elseif($sum>=2000000000 && $sum<5000000000)
+        {
+            $level = 8;
+        }
+        elseif($sum>=5000000000 && $sum<10000000000)
+        {
+            $level = 9;
+        }
+        else
+        {
+            $level = 0;
+        }
+        $customer = LoyalCustomer::updateOrCreate(
+            ['user_id' => $user_id],
+            ['level'=> $level]
+        );
     }
 }

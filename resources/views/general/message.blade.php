@@ -142,7 +142,7 @@
     <div class="container-fluid">
         <div class="site-mobile-menu-header">
             @include('user.header')
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-1" style="padding-right: 1px;border:0;">
                     <button style="width:100%;border-radius:20%;">Tất cả</button>
                 </div>
@@ -152,7 +152,7 @@
                 <div class="col-md-1" style="padding: 0 15px 0 0;">
                     <button style="width:100%;border-radius:20%;">Bán</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="site-mobile-menu-body"></div>
     </div>
