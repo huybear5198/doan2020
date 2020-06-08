@@ -7,7 +7,7 @@
 		  <div class="individual-car-title">
         <h3>{{ $single_product->name }}</h3>
         <h4>{{ $single_product->price }} VNĐ</h4>
-        <ul class="list-unstyled list-inline">
+        {{-- <ul class="list-unstyled list-inline">
           <li class="list-inline-item">  Ahmedabad (reg) </li>
           <li class="list-inline-item"> | </li>
           <li class="list-inline-item">   Second Owner </li>
@@ -18,7 +18,7 @@
             <a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i> Share </a>
             <script async src="https://static.addtoany.com/menu/page.js"></script>
           </li>
-        </ul>
+        </ul> --}}
       </div>
       <div class="cars-gallery">
         <div class="swiper-container gallery-top">
@@ -43,23 +43,26 @@
               </div>
               <div class="col-md-6">
                 <ul>
+                  <li><strong>Mô tả :</strong> {{ $single_product->description }} </li>
+                  <li><strong>Số lượng :</strong> {{ $single_product->quantity }} </li>
+                  <li><strong>Loại sản phẩm :</strong> {{ $single_product->type_product_name }} </li>
                   <li><strong>Thành phố :</strong> {{ $single_product->city }} </li>
                   <li><strong>Quận :</strong> {{ $single_product->district }} </li>
                   <li><strong>Phường :</strong> {{ $single_product->sub_district }} </li>
                   <li><strong>Đường :</strong> {{ $single_product->street }} </li>
                 </ul>
               </div>
-              <div class="col-md-6">
+              {{-- <div class="col-md-6">
                 <ul>
                   <li><strong>Transmission :</strong> Manual </li>
                   <li><strong>Color :</strong> Black </li>
                   <li><strong>No. of Owner(s) :</strong> First </li>
                 </ul>
-              </div>
+              </div> --}}
               <div class="col-md-12">
-                <footer class="blockquote-footer">Please mention whenever you call that you found the details on this particular site.</footer>
-                <footer class="blockquote-footer">Always arrange a meeting in a safe place.</footer>
-                <footer class="blockquote-footer">This site helps you in searching for a vehicle. We do not verify the authenticity of the product.</footer>
+                <footer class="blockquote-footer">Vui lòng đề cập bất cứ khi nào bạn gọi mà bạn tìm thấy các chi tiết trên trang web cụ thể này.</footer>
+                <footer class="blockquote-footer">Luôn sắp xếp một cuộc hẹn ở một nơi an toàn.</footer>
+                <footer class="blockquote-footer">Trang web này giúp bạn trong việc tìm kiếm món đồ. Chúng tôi không xác minh tính xác thực của sản phẩm.</footer>
                 </div>
               </div>
             </div>
@@ -72,6 +75,11 @@
             <div class="card-body">
               <small> Kết nối với cửa hàng</small>
               <h3><i class="fa fa-inr"></i>Cửa hàng {{ $single_product->store }}</h3>
+              @if($single_product->id_user == 1)
+                <div class="form-group">
+                  <button style="width:310px;" class="btn btn-primary"  value="#">Thanh toán</button>
+                </div>
+              @endif
               <div class="form-group">
                 <button style="width:310px;" class="btn btn-success message_user"  value="{{ $single_product->id_user }}">Liên hệ với người bán</button>
               </div>

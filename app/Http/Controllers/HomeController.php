@@ -161,8 +161,9 @@ class HomeController extends Controller
     {
         $single_product = DB::table('products')
                         ->join('users','users.id','=','products.id_user')
+                        ->join('type_products','type_products.id','=','products.type_product')
                         ->where('products.id',$id)
-                        ->select('products.*', 'users.name as store')
+                        ->select('products.*', 'users.name as store','type_products.name as type_product_name')
                         ->first();
         return view('general.single_product',compact('single_product'));
     }
