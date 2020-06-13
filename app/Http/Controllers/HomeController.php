@@ -51,7 +51,12 @@ class HomeController extends Controller
         $this->validate($req, [
             'name' => 'required',
             'address' => 'required'
-        ]);
+            ],
+            [
+                'name.required'=>'Vui lòng nhập họ tên',
+                'address.required'=>'Vui lòng nhập địa chỉ',
+            ]
+        );
         $user = User::find(Auth::id());
         $user->name = $req->name;
         $user->address =  $req->address;
@@ -197,7 +202,6 @@ class HomeController extends Controller
                                         ->select('purchase_history.id','users.email as seller','products.name','products.image','products.price','purchase_history.quantity','purchase_history.updated_at','purchase_history.status')
                                         ->get();
         $purchase_history = $seller_purchase_history->merge($buyer_purchase_history);
-        // return response()->json($purchase_history);
         return view('user.purchase_history', compact('purchase_history'));
     }
 
@@ -210,6 +214,9 @@ class HomeController extends Controller
             self::setLoyalCustomer($purchase->buyer);
             $purchase->status = 2;
             $purchase->save();
+            $product = Product::find($purchase->product_id);
+            $product->quantity = $product->quantity - $purchase->quantity;
+            $product->save();
             return response()->json("Đã hoàn thành giao dịch");
         }
         elseif($req->status == "cancel")

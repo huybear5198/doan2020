@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Message;
 use App\PurchaseHistory;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -91,6 +92,17 @@ class MessageController extends Controller
     }
     public function postSellProduct(Request $req)
     {
+        $product = Product::find($req->product);
+        $this->validate($req,
+            [
+                'product'=>'required',
+                'quantity'=>'required|max:'.$product->quantity,
+            ],
+            [
+                'product.required'=>'Vui lòng chọn sản phẩm',
+                'quantity.required'=>'Vui lòng nhập số lượng',
+                'quantity.max'=>'Vui lòng nhập số lượng không vượt quá '.$product->quantity,
+            ]);
         $purchase = new PurchaseHistory;
         $purchase->seller = Auth::id();
         $purchase->buyer = $req->user;

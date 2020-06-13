@@ -59,6 +59,7 @@
                     </div>
                 </div>
             </div>
+            @if(count ($products) > 0)
             <div class="modal-footer" style="justify-content: center;">
                 <form method="POST" action="{{ route('sell_product') }}">
                     @csrf
@@ -66,7 +67,7 @@
                     <div class="form-group row" style="text-align: left;">
                         <label for="street" class="col-md-4 col-form-label text-md-right">Sản phẩm</label>
                         <div class="col-md-6">
-                            <select name="product">
+                            <select name="product" class="products">
                                 @foreach($products as $product)
                                     <option value="{{ $product->id }}">{{ $product->name }}</option>
                                 @endforeach
@@ -76,13 +77,14 @@
                     <div class="form-group row" style="text-align: left;">
                         <label for="street" class="col-md-4 col-form-label text-md-right">Số lượng</label>
                         <div class="col-md-6">
-                            <input type="number" name="quantity" min="1" value="1">
+                            <input type="number" name="quantity" class="quantity-product" min="1" value="1">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary" value="">Xác nhận bán</button>
                     <button class="btn btn-light border-dark" data-dismiss="modal">Không</button>
                 </form>
             </div>
+            @endif
         </div>
     </div>
 </div>
