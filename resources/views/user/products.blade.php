@@ -17,15 +17,15 @@
     <table id="products" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Sản phẩm</th>
-                <th>Loại sản phẩm</th>
-                <th>Hình ảnh</th>
-                <th>Mô tả</th>
-                <th>Số lượng</th>
-                <th>Giá</th>
-                <th>Địa chỉ</th>
-                <th>Ngày cập nhập</th>
-                <th>Hành động</th>
+                <th style="width:10%">Sản phẩm</th>
+                <th style="width:8%">Loại sản phẩm</th>
+                <th style="width:5%">Hình ảnh</th>
+                <th style="width:20%">Mô tả</th>
+                <th style="width:1%">Số lượng</th>
+                <th style="width:10%">Giá</th>
+                <th style="width:15%">Địa chỉ</th>
+                <th style="width:10%">Ngày cập nhập</th>
+                <th style="width:10%">Hành động</th>
             </tr>
         </thead>
         <tbody>
@@ -37,8 +37,13 @@
                     <td><img src="{{ Voyager::image( $product->image ) }}" style="width:50px;height:50px;"></td>
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->quantity }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>{{ $product->location }}</td>
+                    <td style="color: #c90927;">{{ number_format($product->price) }} VNĐ</td>
+                    <td>
+                        @if( isset($product->city) && !empty($product->city) ) {{ 'Thành phố: '.$product->city }}<br> @endif
+                        @if( isset($product->district) && !empty($product->district) ) {{ 'Quận: '.$product->district }}<br> @endif
+                        @if( isset($product->sub_district) && !empty($product->sub_district) ) {{ 'Phường: '.$product->sub_district }}<br> @endif
+                        @if( isset($product->street) && !empty($product->street) ) {{ 'Đường: '.$product->street }} @endif
+                    </td>
                     <td>{{ $product->updated_at }}</td>
                     <td>
                         <a class="btn btn-primary edit_button" 

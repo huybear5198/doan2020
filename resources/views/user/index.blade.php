@@ -163,7 +163,11 @@
                                     <label>Cấp độ khách hàng thân thiết</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>{{ Auth::user()->loyal_customer()->first()->level }}</p>
+                                    @if(isset(Auth::user()->loyal_customer()->first()->level))
+                                        <p>{{ Auth::user()->loyal_customer()->first()->level }}</p>
+                                    @else
+                                        <p>0</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

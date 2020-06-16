@@ -1,0 +1,93 @@
+[02-Mar-2020 09:41:06 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[02-Mar-2020 09:41:06 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[02-Mar-2020 09:41:06 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[02-Mar-2020 09:41:29 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[02-Mar-2020 09:41:29 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[02-Mar-2020 09:41:29 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[02-Mar-2020 10:23:39 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[02-Mar-2020 10:23:39 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[02-Mar-2020 10:23:39 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[08-Mar-2020 10:12:17 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[08-Mar-2020 10:12:17 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[08-Mar-2020 10:12:17 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[16-Mar-2020 06:54:46 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[16-Mar-2020 06:54:46 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[16-Mar-2020 06:54:46 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[18-Mar-2020 14:10:05 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[18-Mar-2020 14:10:05 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[18-Mar-2020 14:10:05 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[22-Mar-2020 17:56:00 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[22-Mar-2020 17:56:00 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[22-Mar-2020 17:56:00 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[26-Mar-2020 05:33:19 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[26-Mar-2020 05:33:19 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[26-Mar-2020 05:33:19 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[27-Mar-2020 16:36:37 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[27-Mar-2020 16:36:38 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[27-Mar-2020 16:36:38 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[28-Mar-2020 06:51:19 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:19 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:19 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[28-Mar-2020 06:51:20 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:20 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[28-Mar-2020 06:51:45 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:45 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:45 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[28-Mar-2020 06:51:52 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:52 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Mar-2020 06:51:52 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[04-Apr-2020 05:39:42 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[04-Apr-2020 05:39:42 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[04-Apr-2020 05:39:42 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[04-Apr-2020 13:09:43 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[04-Apr-2020 13:09:43 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[04-Apr-2020 13:09:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[07-Apr-2020 06:00:16 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[07-Apr-2020 06:00:16 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[07-Apr-2020 06:00:16 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[09-Apr-2020 07:00:26 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[09-Apr-2020 07:00:26 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[09-Apr-2020 07:00:26 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[15-Apr-2020 07:43:01 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[15-Apr-2020 07:43:01 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[15-Apr-2020 07:43:01 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[20-Apr-2020 02:58:39 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[20-Apr-2020 02:58:39 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[20-Apr-2020 02:58:39 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[27-Apr-2020 18:15:43 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[27-Apr-2020 18:15:43 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[27-Apr-2020 18:15:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[28-Apr-2020 04:37:09 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Apr-2020 04:37:09 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Apr-2020 04:37:09 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[28-Apr-2020 05:11:15 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Apr-2020 05:11:15 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Apr-2020 05:11:15 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[28-Apr-2020 15:06:08 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Apr-2020 15:06:08 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[28-Apr-2020 15:06:08 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[30-Apr-2020 07:20:30 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[30-Apr-2020 07:20:30 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[30-Apr-2020 07:20:30 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[03-May-2020 10:18:39 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:18:39 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:18:39 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[03-May-2020 10:18:41 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:18:41 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:18:41 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[03-May-2020 10:19:10 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:19:10 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:19:10 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[03-May-2020 10:19:11 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:19:11 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[03-May-2020 10:19:11 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[10-May-2020 07:54:53 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[10-May-2020 07:54:53 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[10-May-2020 07:54:53 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[15-May-2020 20:37:43 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[15-May-2020 20:37:43 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[15-May-2020 20:37:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27
+[16-May-2020 06:13:58 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[16-May-2020 06:13:58 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/pofrgosw/public_html/tai-tro/funtion.php on line 6
+[16-May-2020 06:13:58 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/pofrgosw/public_html/tai-tro/funtion.php on line 27

@@ -17,7 +17,7 @@ class HomeController extends Controller
 {
     public function getIndex()
     {
-        $category = DB::table('type_products')->Paginate(6);
+        $category = DB::table('type_products')->Paginate(10);
         return view('general.home',compact('category'));
         //return view('page.index',compact('product','category'));
     }
@@ -42,7 +42,7 @@ class HomeController extends Controller
     {
         $products = DB::table('products')
                                     ->join('type_products','products.type_product','=','type_products.id')
-                                    ->select('products.id','products.name','type_products.name as type','products.image','products.description','products.quantity','products.price',DB::raw('CONCAT("Thành Phố ",city,", Quận ", district,", Phường ",sub_district,", Đường ",street) AS location'),'products.updated_at')
+                                    ->select('products.id','products.name','type_products.name as type','products.image','products.description','products.quantity','products.price','products.city','products.district','products.sub_district','products.street','products.updated_at')
                                     ->where('products.id_user',Auth::id())
                                     ->get();
         return view('user.products',compact('products'));
@@ -158,7 +158,11 @@ class HomeController extends Controller
 
     public function getCategory($id)
     {
-        $product = Product::where('type_product',$id)->paginate(3);
+        $product = DB::table('products')
+                        ->join('type_products','type_products.id','=','products.type_product')
+                        ->where('type_product',$id)
+                        ->select('products.*', 'type_products.name as TypeProduct')
+                        ->paginate(10);
         return view('general.category',compact('product'));
     }
 

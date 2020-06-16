@@ -28,6 +28,7 @@
                   <li><a href="{{route('register')}}"><span>Đăng ký</span></a></li>
                 @endif
                 <li><a href="{{route('contact')}}"><span>Liên hệ</span></a></li>
+                <li><a href="http://localhost:81/final/doan2020/public/thanh_toan/"><span>Tài trợ</span></a></li>
               </ul>
             </nav>
           </div>

@@ -29,7 +29,7 @@
                 <tr>
                     <td>{{ $one->name }}</td>
                     <td><img src="{{ Voyager::image( $one->image ) }}" style="width:50px;height:50px;"></td>
-                    <td>{{ $one->price }}</td>
+                    <td style="color: #c90927;">{{ number_format($one->price) }} VNĐ</td>
                     <td>{{ $one->quantity }}</td>
                     @if(isset($one->buyer))
                         <td>{{ $one->buyer }}</td>

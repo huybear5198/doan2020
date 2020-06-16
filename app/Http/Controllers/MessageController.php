@@ -92,17 +92,13 @@ class MessageController extends Controller
     }
     public function postSellProduct(Request $req)
     {
-        $product = Product::find($req->product);
-        $this->validate($req,
-            [
-                'product'=>'required',
-                'quantity'=>'required|max:'.$product->quantity,
-            ],
-            [
-                'product.required'=>'Vui lòng chọn sản phẩm',
-                'quantity.required'=>'Vui lòng nhập số lượng',
-                'quantity.max'=>'Vui lòng nhập số lượng không vượt quá '.$product->quantity,
-            ]);
+        $detail_product = Product::find($req->product);
+        $limit_quantity = 'required|max:'.$detail_product->quantity;
+        if($detail_product->quantity<$req->quantity)
+        {
+            $error = 'Vui lòng nhập số lượng không vượt quá '.$detail_product->quantity.' sản phẩm';
+            return back()->with('error',$error);
+        }
         $purchase = new PurchaseHistory;
         $purchase->seller = Auth::id();
         $purchase->buyer = $req->user;

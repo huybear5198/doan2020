@@ -128,7 +128,7 @@
                     });
                 });
             });
-            $('#example_wrapper').on('click','.edit_button',function(){
+            $('#products').on('click','.edit_button',function(){
                 var id_product = $(this).attr('data-id');
                 $.ajax({
                     type: "GET",

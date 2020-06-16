@@ -6,7 +6,7 @@
 		<div class="col-md-8">
 		  <div class="individual-car-title">
         <h3>{{ $single_product->name }}</h3>
-        <h4>{{ $single_product->price }} VNĐ</h4>
+        <h4 style="color: #c90927;">{{ number_format($single_product->price) }} VNĐ</h4>
         {{-- <ul class="list-unstyled list-inline">
           <li class="list-inline-item">  Ahmedabad (reg) </li>
           <li class="list-inline-item"> | </li>
@@ -46,10 +46,18 @@
                   <li><strong>Mô tả :</strong> {{ $single_product->description }} </li>
                   <li><strong>Số lượng :</strong> {{ $single_product->quantity }} </li>
                   <li><strong>Loại sản phẩm :</strong> {{ $single_product->type_product_name }} </li>
-                  <li><strong>Thành phố :</strong> {{ $single_product->city }} </li>
-                  <li><strong>Quận :</strong> {{ $single_product->district }} </li>
-                  <li><strong>Phường :</strong> {{ $single_product->sub_district }} </li>
-                  <li><strong>Đường :</strong> {{ $single_product->street }} </li>
+                  @if( isset($single_product->city) && !empty($single_product->city) )
+                    <li><strong>Thành phố :</strong> {{ $single_product->city }} </li>
+                  @endif
+                  @if( isset($single_product->district) && !empty($single_product->district) )
+                    <li><strong>Quận :</strong> {{ $single_product->district }} </li>
+                  @endif
+                  @if( isset($single_product->sub_district) && !empty($single_product->sub_district) )
+                    <li><strong>Phường :</strong> {{ $single_product->sub_district }} </li>
+                  @endif
+                  @if( isset($single_product->street) && !empty($single_product->street) )
+                    <li><strong>Đường :</strong> {{ $single_product->street }} </li>
+                  @endif
                 </ul>
               </div>
               {{-- <div class="col-md-6">
@@ -75,11 +83,6 @@
             <div class="card-body">
               <small> Kết nối với cửa hàng</small>
               <h3><i class="fa fa-inr"></i>Cửa hàng {{ $single_product->store }}</h3>
-              @if($single_product->id_user == 1)
-                <div class="form-group">
-                  <button style="width:310px;" class="btn btn-primary"  value="#">Thanh toán</button>
-                </div>
-              @endif
               <div class="form-group">
                 <button style="width:310px;" class="btn btn-success message_user"  value="{{ $single_product->id_user }}">Liên hệ với người bán</button>
               </div>

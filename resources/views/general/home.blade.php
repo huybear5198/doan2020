@@ -18,7 +18,7 @@
                 <img style="width:50%; display: inline-block; float:left;" src="{{ Voyager::image( $ct->image ) }}" class="img-fluid">
               </div>
               <div class="listing-item-content">
-                <a href="{{ route('category',$ct->id) }}" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                {{-- <a href="{{ route('category',$ct->id) }}" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a> --}}
                 <a class="px-3 mb-3 category" href="{{ route('category',$ct->id) }}">{{$ct->name}}</a>
                 <h2 class="mb-1"><a href="{{ route('category',$ct->id) }}">{{$ct->description}}</a></h2>
                 <span class="address">Chợ Mới đi cùng các bạn</span>
