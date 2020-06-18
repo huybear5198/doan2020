@@ -81,8 +81,8 @@
         <div class="menu sticky-top ">
           <div class="card bg-light ">
             <div class="card-body">
-              <small> Kết nối với cửa hàng</small>
-              <h3><i class="fa fa-inr"></i>Cửa hàng {{ $single_product->store }}</h3>
+              <small> Kết nối với người bán</small>
+              <h3><i class="fa fa-inr"></i>Người bán {{ $single_product->store }}</h3>
               <div class="form-group">
                 <button style="width:310px;" class="btn btn-success message_user"  value="{{ $single_product->id_user }}">Liên hệ với người bán</button>
               </div>

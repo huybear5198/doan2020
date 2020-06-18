@@ -222,13 +222,16 @@
                 type: "GET",
                 dataType: "json",
                 success: function (response) {
-                    if($(`.user#${response[0].id}`).length === 0)
-                    {
-                        if($('.users').children('li').length != 0){
+                    if($(`.user#${response[0].id}`).length === 0) {
+                        if($('.users').children('li').length != 0) {
                             $('.users').children('li:first-child').before('<li class="user" id="'+response[0].id+'"><div class="media"><div class="media-left"><img src="storage/'+response[0].avatar+'" alt=""></div><div class="media-body"><p class="name">'+response[0].name+'</p><p class="email">'+response[0].email+'</p></div></div></li>');
-                        }else{
+                        }
+                        else {
                             $('.users').append('<li class="user" id="'+response[0].id+'"><div class="media"><div class="media-left"><img src="'+response[0].avatar+'" alt=""></div><div class="media-body"><p class="name">'+response[0].name+'</p><p class="email">'+response[0].email+'</p></div></div></li>');
                         }
+                    }
+                    else {
+                        $(`.user#${response[0].id}`).prependTo("ul.users");
                     }
                     loadPusher();
                     clickUser();

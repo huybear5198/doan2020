@@ -31,6 +31,7 @@ class MessageController extends Controller
                                 })
                                 ->select('users.id','users.name','users.avatar','users.email', DB::raw('count(is_read) AS `unread`'))
                                 ->whereIn('users.id',$all)
+                                // ->orderBy('messages.message','asc')
                                 ->groupBy('users.id','users.name','users.avatar','users.email',`unread`)
                                 ->get();
         return view('general.message', ['users' => $users]);

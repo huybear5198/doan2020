@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function getSearch(Request $req){
         $tk_sanpham = DB::table('products')
                                 ->join('type_products', 'products.type_product', '=', 'type_products.id')
+                                ->where('products.id_user','<>',Auth::id())
                                 ->where('products.name','like','%'.$req->q.'%')
                                 ->where('products.description','like','%'.$req->q.'%')
                                 ->where('products.type_product','like','%'.$req->category.'%')
@@ -160,6 +161,7 @@ class HomeController extends Controller
     {
         $product = DB::table('products')
                         ->join('type_products','type_products.id','=','products.type_product')
+                        ->where('products.id_user','<>',Auth::id())
                         ->where('type_product',$id)
                         ->select('products.*', 'type_products.name as TypeProduct')
                         ->paginate(10);
